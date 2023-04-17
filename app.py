@@ -293,10 +293,10 @@ def createFilters(df, key, cols, ops, log=None):
       else:   
          operator = col4.selectbox("Operation", ops['categorical'],
                            key=str(key)+'_op')
-      if (operator == CONTAINS) | (operator == STARTS_WITH) | (operator == ENDS_WITH) :
-         value = col5.text_input("Text", key=str(key)+'_text')
-      else:
-         value = col5.selectbox("Value", pd.unique(df[data]), key=str(key)+'_value') 
+         if (operator == CONTAINS) | (operator == STARTS_WITH) | (operator == ENDS_WITH) :
+            value = col5.text_input("Text", key=str(key)+'_text')
+         else:
+            value = col5.selectbox("Value", pd.unique(df[data]), key=str(key)+'_value') 
 
    return {DATA:data, OPERATOR:operator, VALUE:value, LOGIC:logic}
 
@@ -699,18 +699,18 @@ if not df.empty:
          #       df[x] = pd.Categorical(df[x])     
          #    df_chart = filterDataChart(df, col1, x, df_chart) 
 
-         #    # Color group
-         #    if "color" in params:
-         #       color = params['color']
+            # Color group
+            # if "color" in params:
+            #    color = params['color']
 
-         #       if chart_type == COUNT_PLOT:
-         #          df[x] = pd.Categorical(df[x])
-         #          df[color] = pd.Categorical(df[color])
+            #    if chart_type == COUNT_PLOT:
+            #       df[x] = pd.Categorical(df[x])
+            #       df[color] = pd.Categorical(df[color])
 
-         #       if "color_type" in params:
-         #          df[color] = pd.Categorical(df[color])
+            #    if "color_type" in params:
+            #       df[color] = pd.Categorical(df[color])
                
-         #       df_chart = filterDataChart(df, col2, color, df_chart) 
+            #    df_chart = filterDataChart(df, col2, color, df_chart) 
      
          if chart_type == GEO:
             fig = geo.createGeoPlot(geo_type, df_chart, params)
