@@ -964,3 +964,4 @@ if not df.empty:
        
 else:
    st.info("Awaiting for data to be uploaded")
+  
