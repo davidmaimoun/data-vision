@@ -167,7 +167,7 @@ def load_dataset(dataset):
       return pd.read_csv(f'{dataset}.csv', encoding= 'unicode_escape')
 
 def visualizeNaValues(df):
-   fig= px.imshow(df.isnull(), aspect='auto')
+   fig= px.imshow(df.isna(), aspect='auto')
    return fig
 
 def filterNaValues(df, col, na):
@@ -461,8 +461,8 @@ if not df.empty:
                df_changed = st.session_state['df_modified']
                fig_na = visualizeNaValues(df_changed)
                is_changes_applied = True
-            # else:
-            #    fig_na = visualizeNaValues(df)
+            else:
+               fig_na = visualizeNaValues(df)
 
             column = None
             col1, col2, col3 = st.columns([1,1,1])
