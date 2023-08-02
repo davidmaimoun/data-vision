@@ -167,8 +167,11 @@ def load_dataset(dataset):
       return pd.read_csv(f'{dataset}.csv', encoding= 'unicode_escape')
 
 def visualizeNaValues(df):
-   fig= px.imshow(df.isna(), aspect='auto')
-   return fig
+   if img.dtype == np.bool: 
+      fig= px.imshow(df.isna(), aspect='auto')
+      return fig
+   else:
+     return df
 
 def filterNaValues(df, col, na):
    df_to_filter = df.copy()
