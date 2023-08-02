@@ -418,6 +418,15 @@ with st.sidebar.header("DataVision"):
 st.header("Data Vision App")
 
 
+data=[[1, 25, 30, 50, 1], [20, 1, 60, 80, 30], [30, 60, 1, 5, 20]]
+fig = px.imshow(data,
+                labels=dict(x="Day of Week", y="Time of Day", color="Productivity"),
+                x=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                y=['Morning', 'Afternoon', 'Evening']
+               )
+fig.update_xaxes(side="top")
+fig.show()
+
 if uploaded_file is not None:
    df = load_csv(uploaded_file)
    filename = f'{uploaded_file.name}_new'
