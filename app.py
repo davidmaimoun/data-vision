@@ -167,7 +167,7 @@ def load_dataset(dataset):
       return pd.read_csv(f'{dataset}.csv', encoding= 'unicode_escape')
 
 def visualizeNaValues(df): 
-   fig = px.imshow(df.isnull())
+   fig = px.imshow(df.isnull(), aspect='auto')
    return fig
    
 
