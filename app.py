@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import functions.charts as ch
 import functions.geo_plot as geo
 import functions.ml as ml
-from pandas_profiling import ProfileReport
+from ydata_profiling import ProfileReport
 from streamlit_pandas_profiling import st_profile_report
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
@@ -460,10 +460,10 @@ if not df.empty:
 
             if  'df_modified' in st.session_state:
                df_changed = st.session_state['df_modified']
-               fig_na = visualizeNaValues(df_changed)
+               # fig_na = visualizeNaValues(df_changed)
                is_changes_applied = True
-            else:
-               fig_na = visualizeNaValues(df)
+            # else:
+            #    fig_na = visualizeNaValues(df)
 
             column = None
             col1, col2, col3 = st.columns([1,1,1])
@@ -493,7 +493,7 @@ if not df.empty:
 
             if col1.button("Apply Changes"):
                df_na_changed = filterNaValues(df, column, na_select)
-               fig_na = visualizeNaValues(df_na_changed)
+               # fig_na = visualizeNaValues(df_na_changed)
                st.session_state["df_modified"] = df_na_changed
                is_changes_applied = True
                st.experimental_rerun()
@@ -502,10 +502,10 @@ if not df.empty:
             if is_changes_applied == True:
                if col3.button("❌ Remove"):
                   del st.session_state["df_modified"]
-                  fig_na = visualizeNaValues(df)
+                  # fig_na = visualizeNaValues(df)
                   st.experimental_rerun()
 
-            st.plotly_chart(fig_na)
+            # st.plotly_chart(fig_na)
 
       with st.container():
          st.markdown("<h5 class='title_section'>Data Manipulation</h5>", unsafe_allow_html=True)
