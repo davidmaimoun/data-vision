@@ -460,10 +460,10 @@ if not df.empty:
 
             if  'df_modified' in st.session_state:
                df_changed = st.session_state['df_modified']
-               fig_na = visualizeNaValues(df_changed)
+               # fig_na = visualizeNaValues(df_changed)
                is_changes_applied = True
             else:
-               fig_na = visualizeNaValues(df)
+               # fig_na = visualizeNaValues(df)
 
             column = None
             col1, col2, col3 = st.columns([1,1,1])
@@ -493,7 +493,7 @@ if not df.empty:
 
             if col1.button("Apply Changes"):
                df_na_changed = filterNaValues(df, column, na_select)
-               fig_na = visualizeNaValues(df_na_changed)
+               # fig_na = visualizeNaValues(df_na_changed)
                st.session_state["df_modified"] = df_na_changed
                is_changes_applied = True
                st.experimental_rerun()
@@ -504,7 +504,7 @@ if not df.empty:
                   del st.session_state["df_modified"]
                   fig_na = visualizeNaValues(df)
                   st.experimental_rerun()
-
+            st.write("⚒️ Sorry, this feature is under building")
             st.plotly_chart(fig_na)
 
       with st.container():
