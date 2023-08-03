@@ -505,7 +505,7 @@ if not df.empty:
                   fig_na = visualizeNaValues(df)
                   st.experimental_rerun()
             st.write("⚒️ Sorry, this feature is under building")
-            st.plotly_chart(fig_na)
+            # st.plotly_chart(fig_na)
 
       with st.container():
          st.markdown("<h5 class='title_section'>Data Manipulation</h5>", unsafe_allow_html=True)
