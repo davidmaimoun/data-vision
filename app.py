@@ -462,7 +462,7 @@ if not df.empty:
                df_changed = st.session_state['df_modified']
                # fig_na = visualizeNaValues(df_changed)
                is_changes_applied = True
-            else:
+            # else:
                # fig_na = visualizeNaValues(df)
 
             column = None
