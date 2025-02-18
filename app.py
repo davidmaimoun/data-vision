@@ -138,7 +138,7 @@ filename = 'dataset'
 def load_csv(file):
    return pd.read_csv(file)
 
-@st.cache
+@st.cache_data
 def convert_df(df):
    return df.to_csv().encode('utf-8')
 
@@ -496,14 +496,14 @@ if not df.empty:
                # fig_na = visualizeNaValues(df_na_changed)
                st.session_state["df_modified"] = df_na_changed
                is_changes_applied = True
-               st.experimental_rerun()
+               st.rerun()
 
 
             if is_changes_applied == True:
                if col3.button("❌ Remove"):
                   del st.session_state["df_modified"]
                   fig_na = visualizeNaValues(df)
-                  st.experimental_rerun()
+                  st.rerun()
             st.write("⚒️ Sorry, this feature is under building")
             # st.plotly_chart(fig_na)
 
@@ -617,7 +617,7 @@ if not df.empty:
             st.session_state['df_modified'] = df_modified
             my_msg.info("Changes applied with success !")
             time.sleep(1.5)
-            st.experimental_rerun()
+            st.rerun()
                
    #####################################################
    # DATA VISUALIZATION ################################
